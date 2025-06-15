@@ -51,7 +51,7 @@ In our system of SSFusion, each worker contains a __Generator__ module for gener
 ## **__SSFusion__** System Overview
 The workflow of the __SSFusion__ System：
 <center class ='img'>
-<img src="Overview_.png" width="600px" />
+<img src="Overview_.png" width="700px" />
 </center>
 
 # Installation
