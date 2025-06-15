@@ -1021,59 +1021,10 @@ class _DistributedOptimizer(torch.optim.Optimizer):
 
         merged_parameters_group_size = self._merged_parameters_group_sizes[name]
         merged_parameters_group_dim  = self._merged_parameters_group_dims[name]
-        
-        # 
-        # if rank()==0:
-        #     print('merged_parameters_group_size=',sum(merged_parameters_group_size))
-        #     print('tensor=', len(tensor))
-        # 
-        
-        # 
-        # if 'classifier.3.weight' in name:
-        #     density=0.002
-        # density =0.1
-        # 
+
         
         group_idx = self._merged_parameters_group_ids[name] 
         
-        # if group_idx==5 or group_idx==6:
-        #     density=0.1
-        # elif group_idx==0 or group_idx==1:
-        #     density=0.01
-        
-        # 
-        # if group_idx==0 or group_idx==1 or group_idx==2:
-        #     density=0.01
-        # elif group_idx==6 :
-        #     density=0.5
-        # elif group_idx==4 or group_idx==5:
-        #     density=0.1
-        # else:
-        #     density=0.05
-        # 
-        # 
-        
-        
-        # 
-        # fc 
-        # if group_idx==1:
-        #     density=0.01
-        # elif group_idx==0 or group_idx==7:
-        #     density=1
-        # elif group_idx==5 or group_idx==6:
-        #     density=0.2
-        # else:
-        #     density=0.05 
-        # 
-        # 
-        
-
-        # if 'fc' in name :
-        #     density=0.001
-        # elif 'conv4' in name:
-        #     density=0.1
-        # else:
-        #     density=1
         
         # print(name,':',group_idx)
         tensor_compressed, ctx, selected_values = self._compression.compress(tensor, name, group_size=merged_parameters_group_size, ratio=density)
