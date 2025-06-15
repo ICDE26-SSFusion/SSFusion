@@ -1,15 +1,4 @@
 
-
-
-
-# conda activate py39mzq
-# which nvcc
-# nvidia-smi
-
-# which python
-cd /home/data/mzq/20250522/n18/mzq/workspace/project/bubblecheck/dear_pytorch/SparDL
-
-
 dnn="${dnn:-resnet152}"
 density="${density:-0.01}"
 source exp_configs/$dnn.conf
@@ -34,8 +23,6 @@ HOROVOD_GPU_OPERATIONS=NCCL  HOROVOD_CACHE_CAPACITY=0 CUDA_VISIBLE_DEVICES=0,2,3
         --max-epochs $max_epochs --batch-size $batch_size --nworkers $nworkers \
             --data-dir $data_dir --lr $lr --nwpernode $nwpernode --nsteps-update $nstepsupdate \
                 --compression --sigma-scale $sigmascale --density $density --compressor $compressor
-
-
 
 
 # mpiexec -n $nworkers -host node194, node195, node196, node197, node198, node199 python main_trainer.py  --dnn $dnn --dataset $dataset --max-epochs $max_epochs --batch-size $batch_size --nworkers $nworkers --data-dir $data_dir --lr $lr --nwpernode $nwpernode --nsteps-update $nstepsupdate --compression --sigma-scale $sigmascale --density $density --compressor $compressor

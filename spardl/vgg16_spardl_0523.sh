@@ -1,14 +1,5 @@
 
 
-
-
-# conda activate py39mzq
-# which nvcc
-# nvidia-smi
-
-# which python
-
-
 dnn="${dnn:-vgg16}"
 density="${density:-0.01}"
 source exp_configs/$dnn.conf

@@ -1,5 +1,0 @@
-2025-06-08 08:32:28,466 [main_trainer.py:294] INFO Configurations: Namespace(batch_size=16, nsteps_update=1, nworkers=6, nwpernode=1, compression=True, compressor='spardl', sigma_scale=2.5, density=0.01, dataset='cifar100', dnn='resnet152', data_dir='/home/mzq/cifar100', lr=0.01, max_epochs=121, pretrain=None)
-2025-06-08 08:32:28,466 [main_trainer.py:300] INFO Interpreter: 3.9.16 (main, Mar  1 2023, 18:22:10) 
-[GCC 11.2.0]
-2025-06-08 08:33:01,670 [dl_trainer.py:292] INFO target_sparsities: [1.0]
-2025-06-08 08:33:01,670 [dl_trainer.py:302] INFO num_batches_per_epoch: 520

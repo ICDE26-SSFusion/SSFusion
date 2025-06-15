@@ -9,14 +9,6 @@
 #SBATCH --output=16nodes_vgg_oktopk_density2.txt
 
 
-# module load daint-gpu
-# conda activate py39mzq
-which nvcc
-nvidia-smi
-
-which python
-
-
 dnn="${dnn:-vgg16}"
 density="${density:-0.01}"
 source exp_configs/$dnn.conf
