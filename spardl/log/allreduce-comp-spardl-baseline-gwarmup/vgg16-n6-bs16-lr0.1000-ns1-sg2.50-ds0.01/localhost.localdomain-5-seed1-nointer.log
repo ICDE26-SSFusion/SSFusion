@@ -1,0 +1,494 @@
+2023-09-01 02:37:26,809 [main_trainer.py:279] INFO Configurations: Namespace(batch_size=16, nsteps_update=1, nworkers=6, nwpernode=1, compression=True, compressor='spardl', sigma_scale=2.5, density=0.01, dataset='cifar10', dnn='vgg16', data_dir='./vgg_data', lr=0.1, max_epochs=121, pretrain=None)
+2023-09-01 02:37:26,809 [main_trainer.py:281] INFO Interpreter: 3.9.16 (main, Mar  1 2023, 18:22:10) 
+[GCC 11.2.0]
+2023-09-01 02:37:52,960 [dl_trainer.py:280] INFO target_sparsities: [1.0]
+2023-09-01 02:37:52,961 [dl_trainer.py:290] INFO num_batches_per_epoch: 520
+2023-09-01 02:37:55,860 [main_trainer.py:81] INFO Broadcast parameters....
+2023-09-01 02:38:39,784 [main_trainer.py:279] INFO Configurations: Namespace(batch_size=16, nsteps_update=1, nworkers=6, nwpernode=1, compression=True, compressor='spardl', sigma_scale=2.5, density=0.01, dataset='cifar10', dnn='vgg16', data_dir='./vgg_data', lr=0.1, max_epochs=121, pretrain=None)
+2023-09-01 02:38:39,784 [main_trainer.py:281] INFO Interpreter: 3.9.16 (main, Mar  1 2023, 18:22:10) 
+[GCC 11.2.0]
+2023-09-01 02:38:44,358 [dl_trainer.py:280] INFO target_sparsities: [1.0]
+2023-09-01 02:38:44,358 [dl_trainer.py:290] INFO num_batches_per_epoch: 520
+2023-09-01 02:38:44,386 [main_trainer.py:81] INFO Broadcast parameters....
+2023-09-01 02:38:44,770 [main_trainer.py:96] INFO Broadcast parameters finished....
+2023-09-01 02:38:44,775 [allreducer.py:275] INFO density: 0.010000
+2023-09-01 02:38:44,775 [allreducer.py:276] INFO threshold scale: 1.092000
+2023-09-01 02:38:44,775 [allreducer.py:657] INFO groups: [['fc.bias', 'fc.weight', 'features.41.bias', 'features.41.weight', 'features.40.bias', 'features.40.weight', 'features.38.bias', 'features.38.weight', 'features.37.bias', 'features.37.weight', 'features.35.bias', 'features.35.weight', 'features.34.bias', 'features.34.weight', 'features.31.bias', 'features.31.weight', 'features.30.bias', 'features.30.weight', 'features.28.bias', 'features.28.weight', 'features.27.bias', 'features.27.weight', 'features.25.bias', 'features.25.weight', 'features.24.bias', 'features.24.weight', 'features.21.bias', 'features.21.weight', 'features.20.bias', 'features.20.weight', 'features.18.bias', 'features.18.weight', 'features.17.bias', 'features.17.weight', 'features.15.bias', 'features.15.weight', 'features.14.bias', 'features.14.weight', 'features.11.bias', 'features.11.weight', 'features.10.bias', 'features.10.weight', 'features.8.bias', 'features.8.weight', 'features.7.bias', 'features.7.weight', 'features.4.bias', 'features.4.weight', 'features.3.bias', 'features.3.weight', 'features.1.bias', 'features.1.weight', 'features.0.bias', 'features.0.weight']]
+2023-09-01 02:38:44,775 [allreducer.py:658] INFO key_groupidx_maps: {'fc.bias': 0, 'fc.weight': 0, 'features.41.bias': 0, 'features.41.weight': 0, 'features.40.bias': 0, 'features.40.weight': 0, 'features.38.bias': 0, 'features.38.weight': 0, 'features.37.bias': 0, 'features.37.weight': 0, 'features.35.bias': 0, 'features.35.weight': 0, 'features.34.bias': 0, 'features.34.weight': 0, 'features.31.bias': 0, 'features.31.weight': 0, 'features.30.bias': 0, 'features.30.weight': 0, 'features.28.bias': 0, 'features.28.weight': 0, 'features.27.bias': 0, 'features.27.weight': 0, 'features.25.bias': 0, 'features.25.weight': 0, 'features.24.bias': 0, 'features.24.weight': 0, 'features.21.bias': 0, 'features.21.weight': 0, 'features.20.bias': 0, 'features.20.weight': 0, 'features.18.bias': 0, 'features.18.weight': 0, 'features.17.bias': 0, 'features.17.weight': 0, 'features.15.bias': 0, 'features.15.weight': 0, 'features.14.bias': 0, 'features.14.weight': 0, 'features.11.bias': 0, 'features.11.weight': 0, 'features.10.bias': 0, 'features.10.weight': 0, 'features.8.bias': 0, 'features.8.weight': 0, 'features.7.bias': 0, 'features.7.weight': 0, 'features.4.bias': 0, 'features.4.weight': 0, 'features.3.bias': 0, 'features.3.weight': 0, 'features.1.bias': 0, 'features.1.weight': 0, 'features.0.bias': 0, 'features.0.weight': 0}
+2023-09-01 02:38:44,775 [allreducer.py:690] INFO offsets: 
+2023-09-01 02:38:44,776 [allreducer.py:337] INFO dynamic densities = [0.01]
+2023-09-01 02:38:44,779 [allreducer.py:649] INFO spar_groups: [{'features.0.weight': ((0, 1728), (0, 1728)), 'features.0.bias': ((0, 64), (1728, 1792)), 'features.1.weight': ((0, 64), (1792, 1856)), 'features.1.bias': ((0, 64), (1856, 1920)), 'features.3.weight': ((0, 36864), (1920, 38784)), 'features.3.bias': ((0, 64), (38784, 38848)), 'features.4.weight': ((0, 64), (38848, 38912)), 'features.4.bias': ((0, 64), (38912, 38976)), 'features.7.weight': ((0, 73728), (38976, 112704)), 'features.7.bias': ((0, 128), (112704, 112832)), 'features.8.weight': ((0, 128), (112832, 112960)), 'features.8.bias': ((0, 128), (112960, 113088)), 'features.10.weight': ((0, 147456), (113088, 260544)), 'features.10.bias': ((0, 128), (260544, 260672)), 'features.11.weight': ((0, 128), (260672, 260800)), 'features.11.bias': ((0, 128), (260800, 260928)), 'features.14.weight': ((0, 294912), (260928, 555840)), 'features.14.bias': ((0, 256), (555840, 556096)), 'features.15.weight': ((0, 256), (556096, 556352)), 'features.15.bias': ((0, 256), (556352, 556608)), 'features.17.weight': ((0, 589824), (556608, 1146432)), 'features.17.bias': ((0, 256), (1146432, 1146688)), 'features.18.weight': ((0, 256), (1146688, 1146944)), 'features.18.bias': ((0, 256), (1146944, 1147200)), 'features.20.weight': ((0, 589824), (1147200, 1737024)), 'features.20.bias': ((0, 256), (1737024, 1737280)), 'features.21.weight': ((0, 256), (1737280, 1737536)), 'features.21.bias': ((0, 256), (1737536, 1737792)), 'features.24.weight': ((0, 716919), (1737792, 2454711))}, {'features.24.weight': ((716919, 1179648), (0, 462729)), 'features.24.bias': ((0, 512), (462729, 463241)), 'features.25.weight': ((0, 512), (463241, 463753)), 'features.25.bias': ((0, 512), (463753, 464265)), 'features.27.weight': ((0, 1990446), (464265, 2454711))}, {'features.27.weight': ((1990446, 2359296), (0, 368850)), 'features.27.bias': ((0, 512), (368850, 369362)), 'features.28.weight': ((0, 512), (369362, 369874)), 'features.28.bias': ((0, 512), (369874, 370386)), 'features.30.weight': ((0, 2084325), (370386, 2454711))}, {'features.30.weight': ((2084325, 2359296), (0, 274971)), 'features.30.bias': ((0, 512), (274971, 275483)), 'features.31.weight': ((0, 512), (275483, 275995)), 'features.31.bias': ((0, 512), (275995, 276507)), 'features.34.weight': ((0, 2178204), (276507, 2454711))}, {'features.34.weight': ((2178204, 2359296), (0, 181092)), 'features.34.bias': ((0, 512), (181092, 181604)), 'features.35.weight': ((0, 512), (181604, 182116)), 'features.35.bias': ((0, 512), (182116, 182628)), 'features.37.weight': ((0, 2272083), (182628, 2454711))}, {'features.37.weight': ((2272083, 2359296), (0, 87213)), 'features.37.bias': ((0, 512), (87213, 87725)), 'features.38.weight': ((0, 512), (87725, 88237)), 'features.38.bias': ((0, 512), (88237, 88749)), 'features.40.weight': ((0, 2359296), (88749, 2448045)), 'features.40.bias': ((0, 512), (2448045, 2448557)), 'features.41.weight': ((0, 512), (2448557, 2449069)), 'features.41.bias': ((0, 512), (2449069, 2449581)), 'fc.weight': ((0, 5120), (2449581, 2454701)), 'fc.bias': ((0, 10), (2454701, 2454711))}]
+2023-09-01 02:38:44,779 [allreducer.py:650] INFO spar_key_groupidx_maps: {'features.0.weight': [0], 'features.0.bias': [0], 'features.1.weight': [0], 'features.1.bias': [0], 'features.3.weight': [0], 'features.3.bias': [0], 'features.4.weight': [0], 'features.4.bias': [0], 'features.7.weight': [0], 'features.7.bias': [0], 'features.8.weight': [0], 'features.8.bias': [0], 'features.10.weight': [0], 'features.10.bias': [0], 'features.11.weight': [0], 'features.11.bias': [0], 'features.14.weight': [0], 'features.14.bias': [0], 'features.15.weight': [0], 'features.15.bias': [0], 'features.17.weight': [0], 'features.17.bias': [0], 'features.18.weight': [0], 'features.18.bias': [0], 'features.20.weight': [0], 'features.20.bias': [0], 'features.21.weight': [0], 'features.21.bias': [0], 'features.24.weight': [0, 1], 'features.24.bias': [1], 'features.25.weight': [1], 'features.25.bias': [1], 'features.27.weight': [1, 2], 'features.27.bias': [2], 'features.28.weight': [2], 'features.28.bias': [2], 'features.30.weight': [2, 3], 'features.30.bias': [3], 'features.31.weight': [3], 'features.31.bias': [3], 'features.34.weight': [3, 4], 'features.34.bias': [4], 'features.35.weight': [4], 'features.35.bias': [4], 'features.37.weight': [4, 5], 'features.37.bias': [5], 'features.38.weight': [5], 'features.38.bias': [5], 'features.40.weight': [5], 'features.40.bias': [5], 'features.41.weight': [5], 'features.41.bias': [5], 'fc.weight': [5], 'fc.bias': [5]}
+2023-09-01 02:38:44,788 [allreducer.py:966] INFO Allreducer thread started ...
+2023-09-01 02:38:44,788 [main_trainer.py:119] INFO Start training ....
+2023-09-01 02:41:42,814 [main_trainer.py:279] INFO Configurations: Namespace(batch_size=16, nsteps_update=1, nworkers=6, nwpernode=1, compression=True, compressor='spardl', sigma_scale=2.5, density=0.01, dataset='cifar10', dnn='vgg16', data_dir='./vgg_data', lr=0.1, max_epochs=121, pretrain=None)
+2023-09-01 02:41:42,815 [main_trainer.py:281] INFO Interpreter: 3.9.16 (main, Mar  1 2023, 18:22:10) 
+[GCC 11.2.0]
+2023-09-01 02:41:47,468 [dl_trainer.py:280] INFO target_sparsities: [1.0]
+2023-09-01 02:41:47,469 [dl_trainer.py:290] INFO num_batches_per_epoch: 520
+2023-09-01 02:41:47,534 [main_trainer.py:81] INFO Broadcast parameters....
+2023-09-01 02:41:47,900 [main_trainer.py:96] INFO Broadcast parameters finished....
+2023-09-01 02:41:47,905 [allreducer.py:275] INFO density: 0.010000
+2023-09-01 02:41:47,905 [allreducer.py:276] INFO threshold scale: 1.092000
+2023-09-01 02:41:47,905 [allreducer.py:657] INFO groups: [['fc.bias', 'fc.weight', 'features.41.bias', 'features.41.weight', 'features.40.bias', 'features.40.weight', 'features.38.bias', 'features.38.weight', 'features.37.bias', 'features.37.weight', 'features.35.bias', 'features.35.weight', 'features.34.bias', 'features.34.weight', 'features.31.bias', 'features.31.weight', 'features.30.bias', 'features.30.weight', 'features.28.bias', 'features.28.weight', 'features.27.bias', 'features.27.weight', 'features.25.bias', 'features.25.weight', 'features.24.bias', 'features.24.weight', 'features.21.bias', 'features.21.weight', 'features.20.bias', 'features.20.weight', 'features.18.bias', 'features.18.weight', 'features.17.bias', 'features.17.weight', 'features.15.bias', 'features.15.weight', 'features.14.bias', 'features.14.weight', 'features.11.bias', 'features.11.weight', 'features.10.bias', 'features.10.weight', 'features.8.bias', 'features.8.weight', 'features.7.bias', 'features.7.weight', 'features.4.bias', 'features.4.weight', 'features.3.bias', 'features.3.weight', 'features.1.bias', 'features.1.weight', 'features.0.bias', 'features.0.weight']]
+2023-09-01 02:41:47,905 [allreducer.py:658] INFO key_groupidx_maps: {'fc.bias': 0, 'fc.weight': 0, 'features.41.bias': 0, 'features.41.weight': 0, 'features.40.bias': 0, 'features.40.weight': 0, 'features.38.bias': 0, 'features.38.weight': 0, 'features.37.bias': 0, 'features.37.weight': 0, 'features.35.bias': 0, 'features.35.weight': 0, 'features.34.bias': 0, 'features.34.weight': 0, 'features.31.bias': 0, 'features.31.weight': 0, 'features.30.bias': 0, 'features.30.weight': 0, 'features.28.bias': 0, 'features.28.weight': 0, 'features.27.bias': 0, 'features.27.weight': 0, 'features.25.bias': 0, 'features.25.weight': 0, 'features.24.bias': 0, 'features.24.weight': 0, 'features.21.bias': 0, 'features.21.weight': 0, 'features.20.bias': 0, 'features.20.weight': 0, 'features.18.bias': 0, 'features.18.weight': 0, 'features.17.bias': 0, 'features.17.weight': 0, 'features.15.bias': 0, 'features.15.weight': 0, 'features.14.bias': 0, 'features.14.weight': 0, 'features.11.bias': 0, 'features.11.weight': 0, 'features.10.bias': 0, 'features.10.weight': 0, 'features.8.bias': 0, 'features.8.weight': 0, 'features.7.bias': 0, 'features.7.weight': 0, 'features.4.bias': 0, 'features.4.weight': 0, 'features.3.bias': 0, 'features.3.weight': 0, 'features.1.bias': 0, 'features.1.weight': 0, 'features.0.bias': 0, 'features.0.weight': 0}
+2023-09-01 02:41:47,906 [allreducer.py:690] INFO offsets: 
+2023-09-01 02:41:47,906 [allreducer.py:337] INFO dynamic densities = [0.01]
+2023-09-01 02:41:47,910 [allreducer.py:649] INFO spar_groups: [{'features.0.weight': ((0, 1728), (0, 1728)), 'features.0.bias': ((0, 64), (1728, 1792)), 'features.1.weight': ((0, 64), (1792, 1856)), 'features.1.bias': ((0, 64), (1856, 1920)), 'features.3.weight': ((0, 36864), (1920, 38784)), 'features.3.bias': ((0, 64), (38784, 38848)), 'features.4.weight': ((0, 64), (38848, 38912)), 'features.4.bias': ((0, 64), (38912, 38976)), 'features.7.weight': ((0, 73728), (38976, 112704)), 'features.7.bias': ((0, 128), (112704, 112832)), 'features.8.weight': ((0, 128), (112832, 112960)), 'features.8.bias': ((0, 128), (112960, 113088)), 'features.10.weight': ((0, 147456), (113088, 260544)), 'features.10.bias': ((0, 128), (260544, 260672)), 'features.11.weight': ((0, 128), (260672, 260800)), 'features.11.bias': ((0, 128), (260800, 260928)), 'features.14.weight': ((0, 294912), (260928, 555840)), 'features.14.bias': ((0, 256), (555840, 556096)), 'features.15.weight': ((0, 256), (556096, 556352)), 'features.15.bias': ((0, 256), (556352, 556608)), 'features.17.weight': ((0, 589824), (556608, 1146432)), 'features.17.bias': ((0, 256), (1146432, 1146688)), 'features.18.weight': ((0, 256), (1146688, 1146944)), 'features.18.bias': ((0, 256), (1146944, 1147200)), 'features.20.weight': ((0, 589824), (1147200, 1737024)), 'features.20.bias': ((0, 256), (1737024, 1737280)), 'features.21.weight': ((0, 256), (1737280, 1737536)), 'features.21.bias': ((0, 256), (1737536, 1737792)), 'features.24.weight': ((0, 716919), (1737792, 2454711))}, {'features.24.weight': ((716919, 1179648), (0, 462729)), 'features.24.bias': ((0, 512), (462729, 463241)), 'features.25.weight': ((0, 512), (463241, 463753)), 'features.25.bias': ((0, 512), (463753, 464265)), 'features.27.weight': ((0, 1990446), (464265, 2454711))}, {'features.27.weight': ((1990446, 2359296), (0, 368850)), 'features.27.bias': ((0, 512), (368850, 369362)), 'features.28.weight': ((0, 512), (369362, 369874)), 'features.28.bias': ((0, 512), (369874, 370386)), 'features.30.weight': ((0, 2084325), (370386, 2454711))}, {'features.30.weight': ((2084325, 2359296), (0, 274971)), 'features.30.bias': ((0, 512), (274971, 275483)), 'features.31.weight': ((0, 512), (275483, 275995)), 'features.31.bias': ((0, 512), (275995, 276507)), 'features.34.weight': ((0, 2178204), (276507, 2454711))}, {'features.34.weight': ((2178204, 2359296), (0, 181092)), 'features.34.bias': ((0, 512), (181092, 181604)), 'features.35.weight': ((0, 512), (181604, 182116)), 'features.35.bias': ((0, 512), (182116, 182628)), 'features.37.weight': ((0, 2272083), (182628, 2454711))}, {'features.37.weight': ((2272083, 2359296), (0, 87213)), 'features.37.bias': ((0, 512), (87213, 87725)), 'features.38.weight': ((0, 512), (87725, 88237)), 'features.38.bias': ((0, 512), (88237, 88749)), 'features.40.weight': ((0, 2359296), (88749, 2448045)), 'features.40.bias': ((0, 512), (2448045, 2448557)), 'features.41.weight': ((0, 512), (2448557, 2449069)), 'features.41.bias': ((0, 512), (2449069, 2449581)), 'fc.weight': ((0, 5120), (2449581, 2454701)), 'fc.bias': ((0, 10), (2454701, 2454711))}]
+2023-09-01 02:41:47,910 [allreducer.py:650] INFO spar_key_groupidx_maps: {'features.0.weight': [0], 'features.0.bias': [0], 'features.1.weight': [0], 'features.1.bias': [0], 'features.3.weight': [0], 'features.3.bias': [0], 'features.4.weight': [0], 'features.4.bias': [0], 'features.7.weight': [0], 'features.7.bias': [0], 'features.8.weight': [0], 'features.8.bias': [0], 'features.10.weight': [0], 'features.10.bias': [0], 'features.11.weight': [0], 'features.11.bias': [0], 'features.14.weight': [0], 'features.14.bias': [0], 'features.15.weight': [0], 'features.15.bias': [0], 'features.17.weight': [0], 'features.17.bias': [0], 'features.18.weight': [0], 'features.18.bias': [0], 'features.20.weight': [0], 'features.20.bias': [0], 'features.21.weight': [0], 'features.21.bias': [0], 'features.24.weight': [0, 1], 'features.24.bias': [1], 'features.25.weight': [1], 'features.25.bias': [1], 'features.27.weight': [1, 2], 'features.27.bias': [2], 'features.28.weight': [2], 'features.28.bias': [2], 'features.30.weight': [2, 3], 'features.30.bias': [3], 'features.31.weight': [3], 'features.31.bias': [3], 'features.34.weight': [3, 4], 'features.34.bias': [4], 'features.35.weight': [4], 'features.35.bias': [4], 'features.37.weight': [4, 5], 'features.37.bias': [5], 'features.38.weight': [5], 'features.38.bias': [5], 'features.40.weight': [5], 'features.40.bias': [5], 'features.41.weight': [5], 'features.41.bias': [5], 'fc.weight': [5], 'fc.bias': [5]}
+2023-09-01 02:41:47,920 [allreducer.py:966] INFO Allreducer thread started ...
+2023-09-01 02:41:47,921 [main_trainer.py:119] INFO Start training ....
+2023-09-01 02:41:49,820 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:49,821 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:49,980 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:49,980 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:50,133 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:50,133 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:50,286 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:50,286 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:50,438 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:50,439 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:50,590 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:50,590 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:50,736 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:50,736 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:50,888 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:50,888 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:51,035 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:51,035 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:51,187 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:51,187 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:51,339 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:51,339 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:51,491 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:51,491 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:51,643 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:51,643 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:51,796 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:51,796 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:51,949 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:51,949 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:52,103 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:52,103 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:52,255 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:52,256 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:52,408 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:52,409 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:52,561 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:52,562 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:52,714 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:52,715 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:52,868 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:52,869 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:53,022 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:53,022 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:53,174 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:53,174 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:53,327 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:53,328 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:53,479 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:53,479 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:53,631 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:53,632 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:53,784 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:53,784 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:53,939 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:53,939 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:54,094 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:54,094 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:54,247 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:54,247 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:54,399 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:54,399 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:54,552 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:54,553 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:54,706 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:54,706 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:54,859 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:54,859 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:55,013 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:55,013 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:55,166 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:55,166 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:55,319 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:55,319 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:55,473 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:55,473 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:55,624 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:55,624 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:55,778 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:55,778 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:55,931 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:55,931 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:56,084 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:56,084 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:56,237 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:56,237 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:56,391 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:56,391 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:56,543 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:56,544 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:56,697 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:56,697 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:56,849 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:56,849 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:57,002 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:57,002 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:57,155 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:57,155 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:57,309 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:57,309 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:57,462 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:57,462 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:57,614 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:57,614 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:57,767 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:57,767 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:57,921 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:57,921 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:58,074 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:58,075 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:58,228 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:58,228 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:58,382 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:58,382 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:58,535 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:58,535 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:58,688 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:58,688 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:58,841 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:58,841 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:58,995 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:58,995 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:59,149 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:59,149 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:59,302 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:59,302 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:59,454 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:59,454 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:59,605 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:59,606 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:59,759 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:59,759 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:41:59,910 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:41:59,910 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:00,062 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:00,062 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:00,214 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:00,214 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:00,365 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:00,365 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:00,518 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:00,518 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:00,671 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:00,671 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:00,824 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:00,824 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:00,977 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:00,977 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:01,130 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:01,130 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:01,284 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:01,284 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:01,436 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:01,436 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:01,588 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:01,589 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:01,741 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:01,741 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:01,894 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:01,894 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:02,047 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:02,047 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:02,199 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:02,199 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:02,352 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:02,353 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:02,505 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:02,505 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:02,659 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:02,659 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:02,812 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:02,812 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:02,964 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:02,964 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:03,116 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:03,116 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:03,268 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:03,269 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:03,420 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:03,421 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:03,573 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:03,573 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:03,726 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:03,726 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:03,879 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:03,879 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:04,032 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:04,032 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:04,185 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:04,185 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:04,339 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:04,339 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:04,494 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:04,494 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:04,646 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:04,646 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:04,798 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:04,799 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:04,951 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:04,951 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:05,104 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:05,104 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:05,258 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:05,258 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:05,411 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:05,412 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:05,565 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:05,565 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:05,717 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:05,717 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:05,871 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:05,871 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:06,024 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:06,024 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:06,177 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:06,177 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:06,329 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:06,329 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:06,482 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:06,482 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:06,635 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:06,635 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:06,788 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:06,788 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:06,939 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:06,940 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:07,094 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:07,094 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:07,246 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:07,246 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:07,400 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:07,400 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:07,552 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:07,553 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:07,704 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:07,705 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:07,857 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:07,857 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:08,008 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:08,009 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:08,161 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:08,161 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:08,314 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:08,314 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:08,467 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:08,467 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:08,619 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:08,619 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:08,771 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:08,772 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:08,924 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:08,924 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:09,074 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:09,074 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:09,229 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:09,229 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:09,381 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:09,381 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:09,533 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:09,534 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:09,685 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:09,685 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:09,837 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:09,838 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:09,991 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:09,991 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:10,144 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:10,144 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:10,297 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:10,298 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:10,451 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:10,451 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:10,602 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:10,603 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:10,755 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:10,755 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:10,907 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:10,907 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:11,059 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:11,059 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:11,211 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:11,211 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:11,364 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:11,364 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:11,516 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:11,516 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:11,668 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:11,668 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:11,820 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:11,820 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:11,973 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:11,973 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:12,126 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:12,126 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:12,279 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:12,279 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:12,432 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:12,433 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:12,585 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:12,585 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:12,738 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:12,738 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:12,891 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:12,891 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:13,043 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:13,043 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:13,195 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:13,195 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:13,347 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:13,347 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:13,500 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:13,500 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:13,653 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:13,653 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:13,805 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:13,805 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:13,955 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:13,955 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:14,107 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:14,108 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:14,261 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:14,261 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:14,415 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:14,416 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:14,568 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:14,568 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:14,721 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:14,722 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:14,874 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:14,874 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:15,027 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:15,027 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:15,180 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:15,180 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:15,333 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:15,333 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:15,486 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:15,486 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:15,640 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:15,640 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:15,792 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:15,792 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:15,945 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:15,945 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:16,098 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:16,098 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:16,252 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:16,252 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:16,406 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:16,406 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:16,560 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:16,560 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:16,712 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:16,712 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:16,865 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:16,865 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:17,017 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:17,018 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:17,171 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:17,171 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:17,323 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:17,324 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:17,476 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:17,477 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:17,628 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:17,628 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:17,780 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:17,780 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:17,933 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:17,933 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:18,085 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:18,085 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:18,237 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:18,237 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:42:18,390 [allreducer.py:1264] INFO (24547, 0, False, 24547, 24547)
+2023-09-01 02:42:18,391 [allreducer.py:1266] INFO ('grad size:', 24547, 24547)
+2023-09-01 02:44:04,233 [main_trainer.py:279] INFO Configurations: Namespace(batch_size=16, nsteps_update=1, nworkers=6, nwpernode=1, compression=True, compressor='spardl', sigma_scale=2.5, density=0.01, dataset='cifar10', dnn='vgg16', data_dir='./vgg_data', lr=0.1, max_epochs=121, pretrain=None)
+2023-09-01 02:44:04,234 [main_trainer.py:281] INFO Interpreter: 3.9.16 (main, Mar  1 2023, 18:22:10) 
+[GCC 11.2.0]
+2023-09-01 02:44:09,003 [dl_trainer.py:280] INFO target_sparsities: [1.0]
+2023-09-01 02:44:09,004 [dl_trainer.py:290] INFO num_batches_per_epoch: 520
+2023-09-01 02:44:09,028 [main_trainer.py:81] INFO Broadcast parameters....
+2023-09-01 02:44:09,406 [main_trainer.py:96] INFO Broadcast parameters finished....
+2023-09-01 02:44:09,411 [allreducer.py:275] INFO density: 0.010000
+2023-09-01 02:44:09,411 [allreducer.py:276] INFO threshold scale: 1.092000
+2023-09-01 02:44:09,411 [allreducer.py:657] INFO groups: [['fc.bias', 'fc.weight', 'features.41.bias', 'features.41.weight', 'features.40.bias', 'features.40.weight', 'features.38.bias', 'features.38.weight', 'features.37.bias', 'features.37.weight', 'features.35.bias', 'features.35.weight', 'features.34.bias', 'features.34.weight', 'features.31.bias', 'features.31.weight', 'features.30.bias', 'features.30.weight', 'features.28.bias', 'features.28.weight', 'features.27.bias', 'features.27.weight', 'features.25.bias', 'features.25.weight', 'features.24.bias', 'features.24.weight', 'features.21.bias', 'features.21.weight', 'features.20.bias', 'features.20.weight', 'features.18.bias', 'features.18.weight', 'features.17.bias', 'features.17.weight', 'features.15.bias', 'features.15.weight', 'features.14.bias', 'features.14.weight', 'features.11.bias', 'features.11.weight', 'features.10.bias', 'features.10.weight', 'features.8.bias', 'features.8.weight', 'features.7.bias', 'features.7.weight', 'features.4.bias', 'features.4.weight', 'features.3.bias', 'features.3.weight', 'features.1.bias', 'features.1.weight', 'features.0.bias', 'features.0.weight']]
+2023-09-01 02:44:09,411 [allreducer.py:658] INFO key_groupidx_maps: {'fc.bias': 0, 'fc.weight': 0, 'features.41.bias': 0, 'features.41.weight': 0, 'features.40.bias': 0, 'features.40.weight': 0, 'features.38.bias': 0, 'features.38.weight': 0, 'features.37.bias': 0, 'features.37.weight': 0, 'features.35.bias': 0, 'features.35.weight': 0, 'features.34.bias': 0, 'features.34.weight': 0, 'features.31.bias': 0, 'features.31.weight': 0, 'features.30.bias': 0, 'features.30.weight': 0, 'features.28.bias': 0, 'features.28.weight': 0, 'features.27.bias': 0, 'features.27.weight': 0, 'features.25.bias': 0, 'features.25.weight': 0, 'features.24.bias': 0, 'features.24.weight': 0, 'features.21.bias': 0, 'features.21.weight': 0, 'features.20.bias': 0, 'features.20.weight': 0, 'features.18.bias': 0, 'features.18.weight': 0, 'features.17.bias': 0, 'features.17.weight': 0, 'features.15.bias': 0, 'features.15.weight': 0, 'features.14.bias': 0, 'features.14.weight': 0, 'features.11.bias': 0, 'features.11.weight': 0, 'features.10.bias': 0, 'features.10.weight': 0, 'features.8.bias': 0, 'features.8.weight': 0, 'features.7.bias': 0, 'features.7.weight': 0, 'features.4.bias': 0, 'features.4.weight': 0, 'features.3.bias': 0, 'features.3.weight': 0, 'features.1.bias': 0, 'features.1.weight': 0, 'features.0.bias': 0, 'features.0.weight': 0}
+2023-09-01 02:44:09,412 [allreducer.py:690] INFO offsets: 
+2023-09-01 02:44:09,412 [allreducer.py:337] INFO dynamic densities = [0.01]
+2023-09-01 02:44:09,416 [allreducer.py:649] INFO spar_groups: [{'features.0.weight': ((0, 1728), (0, 1728)), 'features.0.bias': ((0, 64), (1728, 1792)), 'features.1.weight': ((0, 64), (1792, 1856)), 'features.1.bias': ((0, 64), (1856, 1920)), 'features.3.weight': ((0, 36864), (1920, 38784)), 'features.3.bias': ((0, 64), (38784, 38848)), 'features.4.weight': ((0, 64), (38848, 38912)), 'features.4.bias': ((0, 64), (38912, 38976)), 'features.7.weight': ((0, 73728), (38976, 112704)), 'features.7.bias': ((0, 128), (112704, 112832)), 'features.8.weight': ((0, 128), (112832, 112960)), 'features.8.bias': ((0, 128), (112960, 113088)), 'features.10.weight': ((0, 147456), (113088, 260544)), 'features.10.bias': ((0, 128), (260544, 260672)), 'features.11.weight': ((0, 128), (260672, 260800)), 'features.11.bias': ((0, 128), (260800, 260928)), 'features.14.weight': ((0, 294912), (260928, 555840)), 'features.14.bias': ((0, 256), (555840, 556096)), 'features.15.weight': ((0, 256), (556096, 556352)), 'features.15.bias': ((0, 256), (556352, 556608)), 'features.17.weight': ((0, 589824), (556608, 1146432)), 'features.17.bias': ((0, 256), (1146432, 1146688)), 'features.18.weight': ((0, 256), (1146688, 1146944)), 'features.18.bias': ((0, 256), (1146944, 1147200)), 'features.20.weight': ((0, 589824), (1147200, 1737024)), 'features.20.bias': ((0, 256), (1737024, 1737280)), 'features.21.weight': ((0, 256), (1737280, 1737536)), 'features.21.bias': ((0, 256), (1737536, 1737792)), 'features.24.weight': ((0, 716919), (1737792, 2454711))}, {'features.24.weight': ((716919, 1179648), (0, 462729)), 'features.24.bias': ((0, 512), (462729, 463241)), 'features.25.weight': ((0, 512), (463241, 463753)), 'features.25.bias': ((0, 512), (463753, 464265)), 'features.27.weight': ((0, 1990446), (464265, 2454711))}, {'features.27.weight': ((1990446, 2359296), (0, 368850)), 'features.27.bias': ((0, 512), (368850, 369362)), 'features.28.weight': ((0, 512), (369362, 369874)), 'features.28.bias': ((0, 512), (369874, 370386)), 'features.30.weight': ((0, 2084325), (370386, 2454711))}, {'features.30.weight': ((2084325, 2359296), (0, 274971)), 'features.30.bias': ((0, 512), (274971, 275483)), 'features.31.weight': ((0, 512), (275483, 275995)), 'features.31.bias': ((0, 512), (275995, 276507)), 'features.34.weight': ((0, 2178204), (276507, 2454711))}, {'features.34.weight': ((2178204, 2359296), (0, 181092)), 'features.34.bias': ((0, 512), (181092, 181604)), 'features.35.weight': ((0, 512), (181604, 182116)), 'features.35.bias': ((0, 512), (182116, 182628)), 'features.37.weight': ((0, 2272083), (182628, 2454711))}, {'features.37.weight': ((2272083, 2359296), (0, 87213)), 'features.37.bias': ((0, 512), (87213, 87725)), 'features.38.weight': ((0, 512), (87725, 88237)), 'features.38.bias': ((0, 512), (88237, 88749)), 'features.40.weight': ((0, 2359296), (88749, 2448045)), 'features.40.bias': ((0, 512), (2448045, 2448557)), 'features.41.weight': ((0, 512), (2448557, 2449069)), 'features.41.bias': ((0, 512), (2449069, 2449581)), 'fc.weight': ((0, 5120), (2449581, 2454701)), 'fc.bias': ((0, 10), (2454701, 2454711))}]
+2023-09-01 02:44:09,416 [allreducer.py:650] INFO spar_key_groupidx_maps: {'features.0.weight': [0], 'features.0.bias': [0], 'features.1.weight': [0], 'features.1.bias': [0], 'features.3.weight': [0], 'features.3.bias': [0], 'features.4.weight': [0], 'features.4.bias': [0], 'features.7.weight': [0], 'features.7.bias': [0], 'features.8.weight': [0], 'features.8.bias': [0], 'features.10.weight': [0], 'features.10.bias': [0], 'features.11.weight': [0], 'features.11.bias': [0], 'features.14.weight': [0], 'features.14.bias': [0], 'features.15.weight': [0], 'features.15.bias': [0], 'features.17.weight': [0], 'features.17.bias': [0], 'features.18.weight': [0], 'features.18.bias': [0], 'features.20.weight': [0], 'features.20.bias': [0], 'features.21.weight': [0], 'features.21.bias': [0], 'features.24.weight': [0, 1], 'features.24.bias': [1], 'features.25.weight': [1], 'features.25.bias': [1], 'features.27.weight': [1, 2], 'features.27.bias': [2], 'features.28.weight': [2], 'features.28.bias': [2], 'features.30.weight': [2, 3], 'features.30.bias': [3], 'features.31.weight': [3], 'features.31.bias': [3], 'features.34.weight': [3, 4], 'features.34.bias': [4], 'features.35.weight': [4], 'features.35.bias': [4], 'features.37.weight': [4, 5], 'features.37.bias': [5], 'features.38.weight': [5], 'features.38.bias': [5], 'features.40.weight': [5], 'features.40.bias': [5], 'features.41.weight': [5], 'features.41.bias': [5], 'fc.weight': [5], 'fc.bias': [5]}
+2023-09-01 02:44:09,426 [allreducer.py:966] INFO Allreducer thread started ...
+2023-09-01 02:44:09,426 [main_trainer.py:119] INFO Start training ....
+2023-09-01 02:45:30,564 [main_trainer.py:153] INFO Time per epoch including communication: 81.136191, 21.673648
+2023-09-01 02:45:30,566 [dl_trainer.py:740] INFO train iter: 520, num_batches_per_epoch: 520
+2023-09-01 02:45:30,567 [dl_trainer.py:743] INFO Epoch 0, avg train acc: 21.093750, lr: 0.025000, avg loss: 2.106372
+2023-09-01 02:45:30,569 [dl_trainer.py:749] WARNING NaN detected! sparsities:  []
+2023-09-01 02:45:30,570 [dl_trainer.py:751] INFO Average Sparsity: nan, compression ratio: nan, communication size: nan
+2023-09-01 02:46:53,614 [main_trainer.py:153] INFO Time per epoch including communication: 83.043417, 47.104645
+2023-09-01 02:46:53,616 [dl_trainer.py:740] INFO train iter: 1040, num_batches_per_epoch: 520
+2023-09-01 02:46:53,617 [dl_trainer.py:743] INFO Epoch 1, avg train acc: 30.360577, lr: 0.033333, avg loss: 1.810270
+2023-09-01 02:46:53,617 [dl_trainer.py:749] WARNING NaN detected! sparsities:  []
+2023-09-01 02:46:53,618 [dl_trainer.py:751] INFO Average Sparsity: nan, compression ratio: nan, communication size: nan
+2023-09-01 02:48:16,848 [main_trainer.py:153] INFO Time per epoch including communication: 83.229697, 72.734534
+2023-09-01 02:48:16,851 [dl_trainer.py:740] INFO train iter: 1560, num_batches_per_epoch: 520
+2023-09-01 02:48:16,852 [dl_trainer.py:743] INFO Epoch 2, avg train acc: 43.605770, lr: 0.041667, avg loss: 1.537778
+2023-09-01 02:48:16,852 [dl_trainer.py:749] WARNING NaN detected! sparsities:  []
+2023-09-01 02:48:16,853 [dl_trainer.py:751] INFO Average Sparsity: nan, compression ratio: nan, communication size: nan
+2023-09-01 02:49:40,067 [main_trainer.py:153] INFO Time per epoch including communication: 83.214062, 98.282330
+2023-09-01 02:49:40,070 [dl_trainer.py:740] INFO train iter: 2080, num_batches_per_epoch: 520
+2023-09-01 02:49:40,071 [dl_trainer.py:743] INFO Epoch 3, avg train acc: 56.093750, lr: 0.050000, avg loss: 1.257950
+2023-09-01 02:49:40,071 [dl_trainer.py:749] WARNING NaN detected! sparsities:  []
+2023-09-01 02:49:40,072 [dl_trainer.py:751] INFO Average Sparsity: nan, compression ratio: nan, communication size: nan
+2023-09-01 03:21:29,683 [main_trainer.py:279] INFO Configurations: Namespace(batch_size=16, nsteps_update=1, nworkers=6, nwpernode=1, compression=True, compressor='spardl', sigma_scale=2.5, density=0.01, dataset='cifar10', dnn='vgg16', data_dir='./vgg_data', lr=0.1, max_epochs=121, pretrain=None)
+2023-09-01 03:21:29,683 [main_trainer.py:281] INFO Interpreter: 3.9.16 (main, Mar  1 2023, 18:22:10) 
+[GCC 11.2.0]
+2023-09-01 03:21:33,669 [dl_trainer.py:280] INFO target_sparsities: [1.0]
+2023-09-01 03:21:33,669 [dl_trainer.py:290] INFO num_batches_per_epoch: 520
+2023-09-01 03:21:33,717 [main_trainer.py:81] INFO Broadcast parameters....
+2023-09-01 03:21:34,093 [main_trainer.py:96] INFO Broadcast parameters finished....
+2023-09-01 03:21:34,099 [allreducer.py:275] INFO density: 0.010000
+2023-09-01 03:21:34,099 [allreducer.py:276] INFO threshold scale: 1.092000
+2023-09-01 03:21:34,100 [allreducer.py:657] INFO groups: [['fc.bias', 'fc.weight', 'features.41.bias', 'features.41.weight', 'features.40.bias', 'features.40.weight', 'features.38.bias', 'features.38.weight', 'features.37.bias', 'features.37.weight', 'features.35.bias', 'features.35.weight', 'features.34.bias', 'features.34.weight', 'features.31.bias', 'features.31.weight', 'features.30.bias', 'features.30.weight', 'features.28.bias', 'features.28.weight', 'features.27.bias', 'features.27.weight', 'features.25.bias', 'features.25.weight', 'features.24.bias', 'features.24.weight', 'features.21.bias', 'features.21.weight', 'features.20.bias', 'features.20.weight', 'features.18.bias', 'features.18.weight', 'features.17.bias', 'features.17.weight', 'features.15.bias', 'features.15.weight', 'features.14.bias', 'features.14.weight', 'features.11.bias', 'features.11.weight', 'features.10.bias', 'features.10.weight', 'features.8.bias', 'features.8.weight', 'features.7.bias', 'features.7.weight', 'features.4.bias', 'features.4.weight', 'features.3.bias', 'features.3.weight', 'features.1.bias', 'features.1.weight', 'features.0.bias', 'features.0.weight']]
+2023-09-01 03:21:34,100 [allreducer.py:658] INFO key_groupidx_maps: {'fc.bias': 0, 'fc.weight': 0, 'features.41.bias': 0, 'features.41.weight': 0, 'features.40.bias': 0, 'features.40.weight': 0, 'features.38.bias': 0, 'features.38.weight': 0, 'features.37.bias': 0, 'features.37.weight': 0, 'features.35.bias': 0, 'features.35.weight': 0, 'features.34.bias': 0, 'features.34.weight': 0, 'features.31.bias': 0, 'features.31.weight': 0, 'features.30.bias': 0, 'features.30.weight': 0, 'features.28.bias': 0, 'features.28.weight': 0, 'features.27.bias': 0, 'features.27.weight': 0, 'features.25.bias': 0, 'features.25.weight': 0, 'features.24.bias': 0, 'features.24.weight': 0, 'features.21.bias': 0, 'features.21.weight': 0, 'features.20.bias': 0, 'features.20.weight': 0, 'features.18.bias': 0, 'features.18.weight': 0, 'features.17.bias': 0, 'features.17.weight': 0, 'features.15.bias': 0, 'features.15.weight': 0, 'features.14.bias': 0, 'features.14.weight': 0, 'features.11.bias': 0, 'features.11.weight': 0, 'features.10.bias': 0, 'features.10.weight': 0, 'features.8.bias': 0, 'features.8.weight': 0, 'features.7.bias': 0, 'features.7.weight': 0, 'features.4.bias': 0, 'features.4.weight': 0, 'features.3.bias': 0, 'features.3.weight': 0, 'features.1.bias': 0, 'features.1.weight': 0, 'features.0.bias': 0, 'features.0.weight': 0}
+2023-09-01 03:21:34,100 [allreducer.py:690] INFO offsets: 
+2023-09-01 03:21:34,101 [allreducer.py:337] INFO dynamic densities = [0.01]
+2023-09-01 03:21:34,104 [allreducer.py:649] INFO spar_groups: [{'features.0.weight': ((0, 1728), (0, 1728)), 'features.0.bias': ((0, 64), (1728, 1792)), 'features.1.weight': ((0, 64), (1792, 1856)), 'features.1.bias': ((0, 64), (1856, 1920)), 'features.3.weight': ((0, 36864), (1920, 38784)), 'features.3.bias': ((0, 64), (38784, 38848)), 'features.4.weight': ((0, 64), (38848, 38912)), 'features.4.bias': ((0, 64), (38912, 38976)), 'features.7.weight': ((0, 73728), (38976, 112704)), 'features.7.bias': ((0, 128), (112704, 112832)), 'features.8.weight': ((0, 128), (112832, 112960)), 'features.8.bias': ((0, 128), (112960, 113088)), 'features.10.weight': ((0, 147456), (113088, 260544)), 'features.10.bias': ((0, 128), (260544, 260672)), 'features.11.weight': ((0, 128), (260672, 260800)), 'features.11.bias': ((0, 128), (260800, 260928)), 'features.14.weight': ((0, 294912), (260928, 555840)), 'features.14.bias': ((0, 256), (555840, 556096)), 'features.15.weight': ((0, 256), (556096, 556352)), 'features.15.bias': ((0, 256), (556352, 556608)), 'features.17.weight': ((0, 589824), (556608, 1146432)), 'features.17.bias': ((0, 256), (1146432, 1146688)), 'features.18.weight': ((0, 256), (1146688, 1146944)), 'features.18.bias': ((0, 256), (1146944, 1147200)), 'features.20.weight': ((0, 589824), (1147200, 1737024)), 'features.20.bias': ((0, 256), (1737024, 1737280)), 'features.21.weight': ((0, 256), (1737280, 1737536)), 'features.21.bias': ((0, 256), (1737536, 1737792)), 'features.24.weight': ((0, 716919), (1737792, 2454711))}, {'features.24.weight': ((716919, 1179648), (0, 462729)), 'features.24.bias': ((0, 512), (462729, 463241)), 'features.25.weight': ((0, 512), (463241, 463753)), 'features.25.bias': ((0, 512), (463753, 464265)), 'features.27.weight': ((0, 1990446), (464265, 2454711))}, {'features.27.weight': ((1990446, 2359296), (0, 368850)), 'features.27.bias': ((0, 512), (368850, 369362)), 'features.28.weight': ((0, 512), (369362, 369874)), 'features.28.bias': ((0, 512), (369874, 370386)), 'features.30.weight': ((0, 2084325), (370386, 2454711))}, {'features.30.weight': ((2084325, 2359296), (0, 274971)), 'features.30.bias': ((0, 512), (274971, 275483)), 'features.31.weight': ((0, 512), (275483, 275995)), 'features.31.bias': ((0, 512), (275995, 276507)), 'features.34.weight': ((0, 2178204), (276507, 2454711))}, {'features.34.weight': ((2178204, 2359296), (0, 181092)), 'features.34.bias': ((0, 512), (181092, 181604)), 'features.35.weight': ((0, 512), (181604, 182116)), 'features.35.bias': ((0, 512), (182116, 182628)), 'features.37.weight': ((0, 2272083), (182628, 2454711))}, {'features.37.weight': ((2272083, 2359296), (0, 87213)), 'features.37.bias': ((0, 512), (87213, 87725)), 'features.38.weight': ((0, 512), (87725, 88237)), 'features.38.bias': ((0, 512), (88237, 88749)), 'features.40.weight': ((0, 2359296), (88749, 2448045)), 'features.40.bias': ((0, 512), (2448045, 2448557)), 'features.41.weight': ((0, 512), (2448557, 2449069)), 'features.41.bias': ((0, 512), (2449069, 2449581)), 'fc.weight': ((0, 5120), (2449581, 2454701)), 'fc.bias': ((0, 10), (2454701, 2454711))}]
+2023-09-01 03:21:34,105 [allreducer.py:650] INFO spar_key_groupidx_maps: {'features.0.weight': [0], 'features.0.bias': [0], 'features.1.weight': [0], 'features.1.bias': [0], 'features.3.weight': [0], 'features.3.bias': [0], 'features.4.weight': [0], 'features.4.bias': [0], 'features.7.weight': [0], 'features.7.bias': [0], 'features.8.weight': [0], 'features.8.bias': [0], 'features.10.weight': [0], 'features.10.bias': [0], 'features.11.weight': [0], 'features.11.bias': [0], 'features.14.weight': [0], 'features.14.bias': [0], 'features.15.weight': [0], 'features.15.bias': [0], 'features.17.weight': [0], 'features.17.bias': [0], 'features.18.weight': [0], 'features.18.bias': [0], 'features.20.weight': [0], 'features.20.bias': [0], 'features.21.weight': [0], 'features.21.bias': [0], 'features.24.weight': [0, 1], 'features.24.bias': [1], 'features.25.weight': [1], 'features.25.bias': [1], 'features.27.weight': [1, 2], 'features.27.bias': [2], 'features.28.weight': [2], 'features.28.bias': [2], 'features.30.weight': [2, 3], 'features.30.bias': [3], 'features.31.weight': [3], 'features.31.bias': [3], 'features.34.weight': [3, 4], 'features.34.bias': [4], 'features.35.weight': [4], 'features.35.bias': [4], 'features.37.weight': [4, 5], 'features.37.bias': [5], 'features.38.weight': [5], 'features.38.bias': [5], 'features.40.weight': [5], 'features.40.bias': [5], 'features.41.weight': [5], 'features.41.bias': [5], 'fc.weight': [5], 'fc.bias': [5]}
+2023-09-01 03:21:34,115 [allreducer.py:966] INFO Allreducer thread started ...
+2023-09-01 03:21:34,116 [main_trainer.py:119] INFO Start training ....
+2023-09-01 03:24:59,352 [main_trainer.py:279] INFO Configurations: Namespace(batch_size=16, nsteps_update=1, nworkers=6, nwpernode=1, compression=True, compressor='spardl', sigma_scale=2.5, density=0.01, dataset='cifar10', dnn='vgg16', data_dir='./vgg_data', lr=0.1, max_epochs=121, pretrain=None)
+2023-09-01 03:24:59,352 [main_trainer.py:281] INFO Interpreter: 3.9.16 (main, Mar  1 2023, 18:22:10) 
+[GCC 11.2.0]
+2023-09-01 03:25:03,433 [dl_trainer.py:280] INFO target_sparsities: [1.0]
+2023-09-01 03:25:03,434 [dl_trainer.py:290] INFO num_batches_per_epoch: 520
+2023-09-01 03:25:03,475 [main_trainer.py:81] INFO Broadcast parameters....
+2023-09-01 03:25:03,851 [main_trainer.py:96] INFO Broadcast parameters finished....
+2023-09-01 03:25:30,815 [main_trainer.py:279] INFO Configurations: Namespace(batch_size=16, nsteps_update=1, nworkers=6, nwpernode=1, compression=True, compressor='spardl', sigma_scale=2.5, density=0.01, dataset='cifar10', dnn='vgg16', data_dir='./vgg_data', lr=0.1, max_epochs=121, pretrain=None)
+2023-09-01 03:25:30,815 [main_trainer.py:281] INFO Interpreter: 3.9.16 (main, Mar  1 2023, 18:22:10) 
+[GCC 11.2.0]
+2023-09-01 03:25:34,711 [dl_trainer.py:280] INFO target_sparsities: [1.0]
+2023-09-01 03:25:34,711 [dl_trainer.py:290] INFO num_batches_per_epoch: 520
+2023-09-01 03:25:34,737 [main_trainer.py:81] INFO Broadcast parameters....
+2023-09-01 03:25:35,118 [main_trainer.py:96] INFO Broadcast parameters finished....
+2023-09-01 03:25:35,124 [allreducer.py:281] INFO density: 0.010000
+2023-09-01 03:25:35,124 [allreducer.py:282] INFO threshold scale: 1.092000
+2023-09-01 03:25:35,124 [allreducer.py:663] INFO groups: [['fc.bias', 'fc.weight', 'features.41.bias', 'features.41.weight', 'features.40.bias', 'features.40.weight', 'features.38.bias', 'features.38.weight', 'features.37.bias', 'features.37.weight', 'features.35.bias', 'features.35.weight', 'features.34.bias', 'features.34.weight', 'features.31.bias', 'features.31.weight', 'features.30.bias', 'features.30.weight', 'features.28.bias', 'features.28.weight', 'features.27.bias', 'features.27.weight', 'features.25.bias', 'features.25.weight', 'features.24.bias', 'features.24.weight', 'features.21.bias', 'features.21.weight', 'features.20.bias', 'features.20.weight', 'features.18.bias', 'features.18.weight', 'features.17.bias', 'features.17.weight', 'features.15.bias', 'features.15.weight', 'features.14.bias', 'features.14.weight', 'features.11.bias', 'features.11.weight', 'features.10.bias', 'features.10.weight', 'features.8.bias', 'features.8.weight', 'features.7.bias', 'features.7.weight', 'features.4.bias', 'features.4.weight', 'features.3.bias', 'features.3.weight', 'features.1.bias', 'features.1.weight', 'features.0.bias', 'features.0.weight']]
+2023-09-01 03:25:35,124 [allreducer.py:664] INFO key_groupidx_maps: {'fc.bias': 0, 'fc.weight': 0, 'features.41.bias': 0, 'features.41.weight': 0, 'features.40.bias': 0, 'features.40.weight': 0, 'features.38.bias': 0, 'features.38.weight': 0, 'features.37.bias': 0, 'features.37.weight': 0, 'features.35.bias': 0, 'features.35.weight': 0, 'features.34.bias': 0, 'features.34.weight': 0, 'features.31.bias': 0, 'features.31.weight': 0, 'features.30.bias': 0, 'features.30.weight': 0, 'features.28.bias': 0, 'features.28.weight': 0, 'features.27.bias': 0, 'features.27.weight': 0, 'features.25.bias': 0, 'features.25.weight': 0, 'features.24.bias': 0, 'features.24.weight': 0, 'features.21.bias': 0, 'features.21.weight': 0, 'features.20.bias': 0, 'features.20.weight': 0, 'features.18.bias': 0, 'features.18.weight': 0, 'features.17.bias': 0, 'features.17.weight': 0, 'features.15.bias': 0, 'features.15.weight': 0, 'features.14.bias': 0, 'features.14.weight': 0, 'features.11.bias': 0, 'features.11.weight': 0, 'features.10.bias': 0, 'features.10.weight': 0, 'features.8.bias': 0, 'features.8.weight': 0, 'features.7.bias': 0, 'features.7.weight': 0, 'features.4.bias': 0, 'features.4.weight': 0, 'features.3.bias': 0, 'features.3.weight': 0, 'features.1.bias': 0, 'features.1.weight': 0, 'features.0.bias': 0, 'features.0.weight': 0}
+2023-09-01 03:25:35,125 [allreducer.py:696] INFO offsets: 
+2023-09-01 03:25:35,125 [allreducer.py:343] INFO dynamic densities = [0.01]
+2023-09-01 03:25:37,193 [allreducer.py:655] INFO spar_groups: [{'features.0.weight': ((0, 1728), (0, 1728)), 'features.0.bias': ((0, 64), (1728, 1792)), 'features.1.weight': ((0, 64), (1792, 1856)), 'features.1.bias': ((0, 64), (1856, 1920)), 'features.3.weight': ((0, 36864), (1920, 38784)), 'features.3.bias': ((0, 64), (38784, 38848)), 'features.4.weight': ((0, 64), (38848, 38912)), 'features.4.bias': ((0, 64), (38912, 38976)), 'features.7.weight': ((0, 73728), (38976, 112704)), 'features.7.bias': ((0, 128), (112704, 112832)), 'features.8.weight': ((0, 128), (112832, 112960)), 'features.8.bias': ((0, 128), (112960, 113088)), 'features.10.weight': ((0, 147456), (113088, 260544)), 'features.10.bias': ((0, 128), (260544, 260672)), 'features.11.weight': ((0, 128), (260672, 260800)), 'features.11.bias': ((0, 128), (260800, 260928)), 'features.14.weight': ((0, 294912), (260928, 555840)), 'features.14.bias': ((0, 256), (555840, 556096)), 'features.15.weight': ((0, 256), (556096, 556352)), 'features.15.bias': ((0, 256), (556352, 556608)), 'features.17.weight': ((0, 589824), (556608, 1146432)), 'features.17.bias': ((0, 256), (1146432, 1146688)), 'features.18.weight': ((0, 256), (1146688, 1146944)), 'features.18.bias': ((0, 256), (1146944, 1147200)), 'features.20.weight': ((0, 589824), (1147200, 1737024)), 'features.20.bias': ((0, 256), (1737024, 1737280)), 'features.21.weight': ((0, 256), (1737280, 1737536)), 'features.21.bias': ((0, 256), (1737536, 1737792)), 'features.24.weight': ((0, 716919), (1737792, 2454711))}, {'features.24.weight': ((716919, 1179648), (0, 462729)), 'features.24.bias': ((0, 512), (462729, 463241)), 'features.25.weight': ((0, 512), (463241, 463753)), 'features.25.bias': ((0, 512), (463753, 464265)), 'features.27.weight': ((0, 1990446), (464265, 2454711))}, {'features.27.weight': ((1990446, 2359296), (0, 368850)), 'features.27.bias': ((0, 512), (368850, 369362)), 'features.28.weight': ((0, 512), (369362, 369874)), 'features.28.bias': ((0, 512), (369874, 370386)), 'features.30.weight': ((0, 2084325), (370386, 2454711))}, {'features.30.weight': ((2084325, 2359296), (0, 274971)), 'features.30.bias': ((0, 512), (274971, 275483)), 'features.31.weight': ((0, 512), (275483, 275995)), 'features.31.bias': ((0, 512), (275995, 276507)), 'features.34.weight': ((0, 2178204), (276507, 2454711))}, {'features.34.weight': ((2178204, 2359296), (0, 181092)), 'features.34.bias': ((0, 512), (181092, 181604)), 'features.35.weight': ((0, 512), (181604, 182116)), 'features.35.bias': ((0, 512), (182116, 182628)), 'features.37.weight': ((0, 2272083), (182628, 2454711))}, {'features.37.weight': ((2272083, 2359296), (0, 87213)), 'features.37.bias': ((0, 512), (87213, 87725)), 'features.38.weight': ((0, 512), (87725, 88237)), 'features.38.bias': ((0, 512), (88237, 88749)), 'features.40.weight': ((0, 2359296), (88749, 2448045)), 'features.40.bias': ((0, 512), (2448045, 2448557)), 'features.41.weight': ((0, 512), (2448557, 2449069)), 'features.41.bias': ((0, 512), (2449069, 2449581)), 'fc.weight': ((0, 5120), (2449581, 2454701)), 'fc.bias': ((0, 10), (2454701, 2454711))}]
+2023-09-01 03:25:37,193 [allreducer.py:656] INFO spar_key_groupidx_maps: {'features.0.weight': [0], 'features.0.bias': [0], 'features.1.weight': [0], 'features.1.bias': [0], 'features.3.weight': [0], 'features.3.bias': [0], 'features.4.weight': [0], 'features.4.bias': [0], 'features.7.weight': [0], 'features.7.bias': [0], 'features.8.weight': [0], 'features.8.bias': [0], 'features.10.weight': [0], 'features.10.bias': [0], 'features.11.weight': [0], 'features.11.bias': [0], 'features.14.weight': [0], 'features.14.bias': [0], 'features.15.weight': [0], 'features.15.bias': [0], 'features.17.weight': [0], 'features.17.bias': [0], 'features.18.weight': [0], 'features.18.bias': [0], 'features.20.weight': [0], 'features.20.bias': [0], 'features.21.weight': [0], 'features.21.bias': [0], 'features.24.weight': [0, 1], 'features.24.bias': [1], 'features.25.weight': [1], 'features.25.bias': [1], 'features.27.weight': [1, 2], 'features.27.bias': [2], 'features.28.weight': [2], 'features.28.bias': [2], 'features.30.weight': [2, 3], 'features.30.bias': [3], 'features.31.weight': [3], 'features.31.bias': [3], 'features.34.weight': [3, 4], 'features.34.bias': [4], 'features.35.weight': [4], 'features.35.bias': [4], 'features.37.weight': [4, 5], 'features.37.bias': [5], 'features.38.weight': [5], 'features.38.bias': [5], 'features.40.weight': [5], 'features.40.bias': [5], 'features.41.weight': [5], 'features.41.bias': [5], 'fc.weight': [5], 'fc.bias': [5]}
+2023-09-01 03:25:37,196 [allreducer.py:972] INFO Allreducer thread started ...
+2023-09-01 03:25:37,197 [main_trainer.py:119] INFO Start training ....
