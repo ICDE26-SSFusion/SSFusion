@@ -1,9 +1,6 @@
 # SSFusion: Tensor Fusion with Selective Sparsification for Efficient Distributed DNN Training
 
-__SSFusion__ is a new tensor fusion with selective sparsification mechanism for efficient distributed DNN training. __SSFusion__ first proposes a sparsification-ahead tensor fusion scheme, which selects partial tensors for sparsification before merging them during tensor fusion, instead of per-tensor or multi-tensor sparsification, so as to reduce compression overhead and avoid tensor missing. Then, __SSFusion__ proposes an efficient offloading scheme that further reduces compression overhead by offloading GPU-based tensor sparsification to the CPU and an
-efficient partition communication scheme that improves sparse
-communication efficiency by partitioning tensors in the fusion
-buffer and performing interleaved communication.
+__SSFusion__ is a new tensor fusion with selective sparsification mechanism for efficient distributed DNN training. __SSFusion__ first proposes a sparsification-ahead tensor fusion scheme, which selects partial tensors for sparsification before merging them during tensor fusion, instead of per-tensor or multi-tensor sparsification, so as to reduce compression overhead and avoid tensor missing. Then, __SSFusion__ proposes an efficient offloading scheme that further reduces compression overhead by offloading GPU-based tensor sparsification to the CPU and an efficient partition communication scheme that improves sparse communication efficiency by partitioning tensors in the fusion buffer and performing interleaved communication.
 This repository contains __SSFusion__'s source code, as well as a set of benchmarking scripts for some popular open-source distributed DNN training systems with state-of-the-art tensor fusion and sparsification schemes. 
 
 
@@ -38,7 +35,7 @@ This code repository covers:
 
 
 ## **__SSFusion__** System Architecture
-We use the [PyTorch](https://github.com/pytorch/pytorch) framework and implemented the prototype system of __SSFusion__ based on the [Horovod](https://github.com/horovod/horovod) distributed training framework using NCCL as the communication library.
+We use the [PyTorch](https://github.com/pytorch/pytorch) framework and implement the prototype system of __SSFusion__ based on the [Horovod](https://github.com/horovod/horovod) distributed training framework using NCCL as the communication library.
 <!-- The overview of our system is as follows:  -->
 <!-- ![Overview](Overview.png) -->
 <!-- <center class ='img'>
@@ -51,7 +48,7 @@ In our system of SSFusion, each worker contains a __Generator__ module for gener
 ## **__SSFusion__** System Overview
 The workflow of the __SSFusion__ System：
 <center class ='img'>
-<img src="Overview_.png" width="600px" />
+<img src="Overview_.png" width="700px" />
 </center>
 
 # Installation
