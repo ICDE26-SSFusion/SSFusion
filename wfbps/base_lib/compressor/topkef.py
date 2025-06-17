@@ -8,7 +8,6 @@ import math
 
 
 
-
 class TopKEFCompressor(Compressor):
 
     def __init__(self, compress_ratio, rank):
@@ -35,7 +34,8 @@ class TopKEFCompressor(Compressor):
         # self.residuals={{}}
         # for i in range(hvd.size()):
         #     self.residuals[str(i)]={}
-   
+
+
     def initialize(self, named_parameters):
         # if hvd.rank() == 0:
         #     print("=> initializing dgc compressor")
@@ -46,7 +46,8 @@ class TopKEFCompressor(Compressor):
             else:
                 assert isinstance(param, (list, tuple))
                 numel, shape = param[0], param[1]
-            
+
+    
     def sparsify(self,tensor, compress_ratio,epoch, name):
         tensor_flatten = tensor.flatten()
         numel = tensor.numel()

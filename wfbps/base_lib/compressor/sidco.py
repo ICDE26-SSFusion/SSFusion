@@ -6,6 +6,7 @@ import grace_lib.sidcosettings as settings
 import math
 import sys
 
+
 class NoneCompressor(Compressor):
     norm = 1.0
     sum_ratio = 0.0
@@ -18,6 +19,7 @@ class NoneCompressor(Compressor):
     first_ratio=settings.FIRST_RATIO
     fr_update=settings.FR_UPDATE
     count_frupdates=0
+
 
 class MultStageSparseCompressor(NoneCompressor):
     @staticmethod

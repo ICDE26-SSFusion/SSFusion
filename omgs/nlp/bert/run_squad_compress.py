@@ -818,7 +818,7 @@ def main():
                         default=42,
                         help="random seed for initialization")
     
-    # 控制打印次数
+    # 
     parser.add_argument('--gradient_accumulation_steps',
                         type=int,
                         default=1,
@@ -1309,10 +1309,9 @@ def main():
                     hook_time=sum(optimizer.hook_time)
                     if hvd.rank() == 0:
                         
-                                print('compress_time = ', compress_time)
+                        print('compress_time = ', compress_time)
                         print('threshold_time = ', threshold_time)
-                     
-                  print('io_time = ', io_time)
+                        print('io_time = ', io_time)
                         print('forward_time = ', forward_time)
                         print('backward_time = ', backward_time-compress_time)
                         print('step_time = ', step_time)

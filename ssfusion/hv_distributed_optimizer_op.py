@@ -862,7 +862,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
             upload_queue.put(((new_key,result[1],result[2],offset),layer_idx))
     
     # 
-    def _push_to_buffer_and_compression(self, name, tensor, density):
+    def _push_to_buffer_and_compression_back(self, name, tensor, density):
         self._iter_time = 0
         debug = False
         with torch.no_grad():
@@ -957,7 +957,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
             
             if debug:
                 et = time.time()
-                print(f"同步时间: {et - bt}")
+                print(f"synchronize Time: {et - bt}")
                 self._iter_time += et - bt
 
             # arg1 = new_key
@@ -978,7 +978,130 @@ class _DistributedOptimizer(torch.optim.Optimizer):
 
             return new_key, self._merged_parameters[new_key], merged_parameters_indicates, merged_parameters_values
     
+    
+    
+    def _push_to_buffer_and_compression(self, name, tensor, density):
+        self._iter_time = 0
+        debug = False
+        with torch.no_grad():
+            if debug:
+                print("begin pushing")
+            if len(self._groups) == len(self._sequential_keys):
+                new_tensor = tensor.data.view(-1)
+                self.offset_compress = 0
+                return name, new_tensor, self._merged_parameters_indicates[new_key], self._merged_parameters_values[new_key]
+            
+            # 
+            # group_idx = 0
+            group_idx = self._key_groupidx_maps[name]
+            g = self._groups[group_idx]
+            new_key = ':'.join(g)
+            layer_idx = g.index(name)
+            if self._compressed_tensor_list is None:
+                self._compressed_tensor_list = [None] * len(g)
 
+            offset = self._merged_parameter_offsets[new_key][layer_idx]
+            numel = tensor.data.numel()
+
+
+            
+            self._merged_parameters[new_key].data[offset:offset+numel].copy_(tensor.to(self._merged_parameters[new_key].data.device).view(numel))
+            self._groups_flags[group_idx][layer_idx] = 1
+            compress_ratio = density
+            if hasattr(self,'_dict') and name in self._dict.keys():
+                compress_ratio = self._dict[name]
+                
+            if layer_idx <= self.partion_idx[group_idx] and compress_ratio == 1:
+                # 
+                # SSFusion-I: Buffer All-Reduce
+                # 
+                try:
+                    self._merged_parameters_noncompress[new_key].data[self.offset_noncompress:self.offset_noncompress + numel].copy_(tensor.to(self._merged_parameters_noncompress[new_key].data.device).view(numel))
+                    self.offset_noncompress += numel
+                except Exception as e:
+                    pass
+            else:
+                # SSFusion-I: Buffer All-Reduce
+                # 
+                if self._offload and name in self.on_cpu:
+                    #  async_compression 
+                    kwargs = {'tensor':tensor.to('cpu'),'name':name,'group_size':None,'ratio':compress_ratio}
+                    self._download_queue.put((kwargs,new_key,offset,layer_idx))
+                    self._queue_len += 1
+                else:
+
+                    result = self._compression.compress(tensor=tensor,name=name,ratio=compress_ratio)
+                    self._compressed_tensor_list[layer_idx] = (new_key,result[1],result[2],offset)
+                    # numel_compress = result[1].numel()
+                    # self._merged_parameters_indicates[new_key].data[self.offset_compress:self.offset_compress+numel_compress].copy_(result[1].view(numel_compress)+offset)
+                    # self._merged_parameters_values[new_key].data[self.offset_compress:self.offset_compress+numel_compress].copy_(result[2].view(numel_compress))
+                    # self.offset_compress += numel_compress
+                    # 
+        
+            # 
+            for i, idx in enumerate(self._groups_flags[group_idx]):
+                # 
+                # if self._model_net_name=='bert_base' and (i==2 or i==3):
+                #     continue
+                # 
+
+                if idx == 0:
+                    if debug:
+                        print("end pushing")
+                    return name, None, None, None, None
+            
+            bt = time.time()
+            # If there are still uninstallation results in the queue, they need to be retrieved
+            if self._offload:
+                while self._queue_len > 0:
+                    self._queue_len -= 1
+                    res,layer_idx = self._upload_queue.get()
+                    self._compressed_tensor_list[layer_idx] = res
+            # 
+            # print(f'self._compressed_tensor_list: {[type(elem) for elem in self._compressed_tensor_list]}')
+            # 
+            for i,res in enumerate(self._compressed_tensor_list):
+                # if i == 0:
+                    # continue
+                if res is None:
+                    continue
+                _new_key,s_indicates,s_values,offset = res
+                numel_compress = s_indicates.numel()
+                self._merged_parameters_indicates[_new_key].data[self.offset_compress:self.offset_compress+numel_compress].copy_(s_indicates.view(numel_compress)+offset)
+                self._merged_parameters_values[_new_key].data[self.offset_compress:self.offset_compress+numel_compress].copy_(s_values.view(numel_compress))
+                self.offset_compress += numel_compress
+            self._compressed_tensor_list = None
+            # self.offset_compress = 0
+            
+            if debug:
+                et = time.time()
+                print(f"Synchronization time: {et - bt}")
+                self._iter_time += et - bt
+
+            # arg1 = new_key
+            # arg2 = self._merged_parameters[new_key].clone()
+            # arg3 = self._merged_parameters_indicates[new_key].clone()
+            # arg4 = self._merged_parameters_values[new_key].clone()
+
+            # return arg1,arg2,arg3,arg4
+            if debug:
+                # print("end pushing for last layer")
+                print(f"Accumulated time: {self._iter_time}")
+                
+            merged_parameters_indicates = self._merged_parameters_indicates[new_key][:self.offset_compress]
+            merged_parameters_values = self._merged_parameters_values[new_key][:self.offset_compress]
+            self._merged_parameters_noncompress[new_key] = self._merged_parameters_noncompress[new_key][:self.offset_noncompress]
+            
+            self.offset_compress = 0
+            self.offset_noncompress = 0
+
+
+            return new_key, self._merged_parameters[new_key], merged_parameters_indicates, merged_parameters_values,group_idx
+    
+
+    
+    
+    
     def _pull_from_buffer(self, name, merged_tensor):
         if len(self._groups) == len(self._sequential_keys):
             shape = self._named_parameters[name].data.shape
@@ -1028,15 +1151,6 @@ class _DistributedOptimizer(torch.optim.Optimizer):
         
         # print(name,':',group_idx)
         tensor_compressed, ctx, selected_values = self._compression.compress(tensor, name, group_size=merged_parameters_group_size, ratio=density)
-
-
-        # tensor_compressed, ctx, selected_values = self._compression.compress_layer_wise(tensor, name, group_size=merged_parameters_group_size, ratio=density)
-
-        # tensor_compressed, ctx, selected_values = self._compression.compress_layer_wise_selective(tensor, name, group_size=merged_parameters_group_size, group_dim=merged_parameters_group_dim,ratio=density)
-        
-        # tensor_compressed, ctx, selected_values = self._compression.compress_block(tensor, name, group_size=merged_parameters_group_size, group_dim=merged_parameters_group_dim,ratio=density)
-        
-        # tensor_compressed, ctx, selected_values = self._compression.compress_block_opt(tensor, name, group_size=merged_parameters_group_size, group_dim=merged_parameters_group_dim,ratio=density)
 
 
         if False and rank() == 0 and self.train_iter % 200 == 0 and self.train_iter < 3000:
@@ -1175,7 +1289,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
         # key(p)=new_tensor, value=(handle, ctx, 1)
         for p, value in self._handles.items():
             # torch.cuda.synchronize()
-            # handle初始时间
+            # handle initialization time
             handle_time = time.time() 
             
             name = self._merged_parameter_names.get(p)
@@ -1206,9 +1320,9 @@ class _DistributedOptimizer(torch.optim.Optimizer):
                         values = values_and_indexes
                         indexes = None
                         per_values = values
-
+                        
                         per_values = self._compression.decompress(per_values, p.size())
-                        # 解压梯度
+                        # Decompression gradient
 
                         new_grad += per_values.view(-1)
                     else:
@@ -1219,7 +1333,8 @@ class _DistributedOptimizer(torch.optim.Optimizer):
 
                         per_values = self._compression.decompress(per_values, p.size())
 
-                        # 解压梯度
+                        # 
+                        # Decompression gradient
                         new_grad[indexes[0:indexes.numel()]] += per_values
 
 
@@ -1378,8 +1493,10 @@ class _DistributedOptimizer(torch.optim.Optimizer):
         """
         return min([self.get_threshold(group_size) for group_size in self._group_sizes])
     
+    
     def valid_threshold_by_group(self,group_idx:int):
         return self.get_threshold(self._group_sizes[group_idx])
+
 
 
     def generate_threshold(self):
@@ -1410,7 +1527,8 @@ class _DistributedOptimizer(torch.optim.Optimizer):
               and valid_threshold is {self.valid_threshold}')
         # self.update_threshold([2048 for _ in range(len(self._group_sizes))])
         self.update_threshold(group_threshold)
-
+    
+    
     def cal_total_time(self,threshold:int,group_idx:int):
         """
         calculate the total time of an iteration, returning the total time of this iteration, float.
@@ -1432,7 +1550,8 @@ class _DistributedOptimizer(torch.optim.Optimizer):
                 communication_numel += layer_size
         communication_end = max(communication_end,calculation_end) + calculation_communication_time_local_8_nodes(communication_numel,self._density)
         return communication_end
-
+    
+    
     def update_threshold(self,threshold_arr:list):
         """
         calculate the sparsity of each layer, and pass the corresponding dict to compressor.
@@ -1442,6 +1561,8 @@ class _DistributedOptimizer(torch.optim.Optimizer):
         all_group_size = sum([sum(group_size) for group_size in self._group_sizes])
         total_tensors = sum([sum(len(group_size) for group_size in self._group_sizes)])
         total_sparse = 0
+
+
         # 
         # Iterate through all buffers
         for i,group_size in enumerate(self._group_sizes):

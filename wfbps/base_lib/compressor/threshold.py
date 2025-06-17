@@ -21,8 +21,9 @@ class ThresholdCompressor(Compressor):
         self.values_flatten_global_np_arr=[]
         self.values_flatten_channel_np_arr=[]
 
+
+
     def compress(self, tensor, name):
-        
         
         shape = tensor.size()
         tensor = tensor.flatten()
@@ -38,6 +39,7 @@ class ThresholdCompressor(Compressor):
         values = tensor[indices]
         ctx = shape, numel
         return [values, indices], ctx
+
 
     def decompress(self, tensor_compressed, ctx):
         if ctx==None:

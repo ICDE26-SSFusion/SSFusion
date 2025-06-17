@@ -35,7 +35,8 @@ class TopKCompressor(Compressor):
         # self.residuals={{}}
         # for i in range(hvd.size()):
         #     self.residuals[str(i)]={}
-   
+
+
     def initialize(self, named_parameters):
         # if hvd.rank() == 0:
         #     print("=> initializing dgc compressor")

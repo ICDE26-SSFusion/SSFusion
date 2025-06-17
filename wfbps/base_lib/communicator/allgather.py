@@ -19,13 +19,13 @@ class Allgather(Communicator):
         :return: handles to synchronize, tensor sizes per rank
         """
         # list of tensor size for this rank, allgather on the 1st dimension of the tensor\
-        # 这个rank的张量大小的列表,全部聚集在张量的第一维上
+        # ,
         tensors_size = []
         for t in tensors_compressed:
             size_dim0 = t.size()[0] if len(t.size())>0 else t.numel()
             tensors_size.append(size_dim0)
         
-        # 判断是否要求压缩的tensor维度大小相同
+        # 
         if self.compressor.tensors_size_are_same:
             tensors_size_ag = [tensors_size] * self.world_size  # list of tensor sizes per rank
             tensor_sizes = zip(*tensors_size_ag)  # transpose
@@ -95,7 +95,7 @@ class Allgather(Communicator):
             tensors_ag.append(gathered)
 
 
-        # 处理压缩的梯度，len(tensors_ag)==2
+        # Processing compressed gradients，len(tensors_ag)==2
         # 1 times, use 
         tensor_compressed = tensors_ag[0], tensors_ag[1]
         

@@ -818,7 +818,7 @@ def main():
                         default=42,
                         help="random seed for initialization")
     
-    # 控制打印次数
+    # 
     parser.add_argument('--gradient_accumulation_steps',
                         type=int,
                         default=1,
