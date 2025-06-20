@@ -8,7 +8,7 @@ This repository contains __SSFusion__'s source code, as well as a set of benchma
 # Introduction
 This code repository covers:
 ### __SSFusion Framework__
-- SSFusion: Tensor fusion with selective sparsification
+- SSFusion(Naive): Tensor fusion with selective sparsification
 - SSFusion-O: Efficient sparsification offloading in SSFusion
 - SSFusion-I: Interleaved communication in SSFusion
 
