@@ -1,6 +1,6 @@
 # SSFusion: Tensor Fusion with Selective Sparsification for Efficient Distributed DNN Training
 
-__SSFusion__ is a new tensor fusion with selective sparsification mechanism for efficient distributed DNN training. __SSFusion__ first proposes a sparsification-ahead tensor fusion scheme, which selects partial tensors for sparsification before merging them during tensor fusion, instead of per-tensor or multi-tensor sparsification, so as to reduce compression overhead and avoid tensor missing. Then, __SSFusion__ proposes an efficient offloading scheme that further reduces compression overhead by offloading GPU-based tensor sparsification to the CPU and an efficient partition communication scheme that improves sparse communication efficiency by partitioning tensors in the fusion buffer and performing interleaved communication.
+__SSFusion__ proposes a new selective sparsification tensor fusion mechanism for distributed DNN training that addresses the limitations of high compression overhead or low convergence accuracy caused by existing tensor fusion schemes. __SSFusion__ performs selective sparsification before tensor fusion, instead of per-tensor or multi-tensor sparsification, to reduce compression overhead while maintaining convergence accuracy. __SSFusion__ also proposes an efficient sparsification offloading scheme to further speed up compression, and an interleaved communication scheme to improve sparse communication efficiency.
 This repository contains __SSFusion__'s source code, as well as a set of benchmarking scripts for some popular open-source distributed DNN training systems with state-of-the-art tensor fusion and sparsification schemes. 
 
 
@@ -43,7 +43,7 @@ We use the [PyTorch](https://github.com/pytorch/pytorch) framework and implement
 </center> -->
 
 
-In our system of SSFusion, each worker contains a __Generator__ module for generating fusion buffer with selective sparsification, which provides  `sparsification offloading` and `partition communication` operations for efficient data-parallel distributed DNN training; __Controller__ module for controlling a series of operations such as sparsified gradient pushing, pulling, and communication in the fusion buffer; a __Sparsification Compression__ module for performing gradient sparsification during the backward propagation.
+In our system of SSFusion, each worker contains a __Generator__ module for generating fusion buffer with selective sparsification, which provides  `Sparsification offloading` and `Interleaved communication` operations for efficient data-parallel distributed DNN training; __Controller__ module for controlling a series of operations such as sparsified gradient selecting, offloading, pushing, pulling, and interleaving communication in the fusion buffer; a __Selective Sparsification__ module for performing selective sparsification during backpropagation; a __Tensor Fusion__ module for performing tensor fusion after backpropagation.
 
 ## **__SSFusion__** System Overview
 The workflow of the __SSFusion__ System：
@@ -77,7 +77,7 @@ if pip installation fails, please try to upgrade pip via `pip install --upgrade
 
 ## **Quick start**
 The primary benchmark is provided in `example`. 
-For example, we can use the following command to run the benchmark on 8 GPUs, with compression algorithm as dgc, communication primitive as allgather, memory as residual.
+For example, we can use the following command to run the benchmark on 8 GPUs, with compression algorithm as dgc, communication primitives as All-Reduce and All-Gather, memory as residual.
  
 **To run BERT-large training job:**
 ```
