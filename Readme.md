@@ -8,9 +8,9 @@ This repository contains __SSFusion__'s source code, as well as a set of benchma
 # Introduction
 This code repository covers:
 ### __SSFusion Framework__
-- SSFusion(Naive): Tensor fusion with selective sparsification
+- SSFusion: Tensor fusion with selective sparsification
 - SSFusion-O: Efficient sparsification offloading in SSFusion
-- SSFusion-P: Efficient partition communication in SSFusion
+- SSFusion-I: Interleaved communication in SSFusion
 
 
 ### __State-of-the-art tensor fusion schemes__
@@ -130,3 +130,5 @@ SSFusion: Tensor Fusion with Selective Sparsification for Efficient Distributed 
 ## **License**
 
 See [LICENSE](https://github.com/ICDE26-SSFusion/SSFusion/blob/main/LICENSE.txt).
+
+
