@@ -1,5 +1,6 @@
 # SSFusion: Tensor Fusion with Selective Sparsification for Efficient Distributed DNN Training
 
+
 __SSFusion__ proposes a new selective sparsification tensor fusion mechanism for data-parallel distributed DNN training that addresses the limitations of high compression overhead or low convergence accuracy caused by existing tensor fusion schemes. __SSFusion__ performs selective sparsification before tensor fusion, instead of per-tensor or multi-tensor sparsification, to reduce compression overhead while maintaining convergence accuracy. __SSFusion__ also proposes an efficient sparsification offloading scheme to further speed up compression, and an interleaved communication scheme to improve sparse communication efficiency.
 This repository contains __SSFusion__'s source code, as well as a set of benchmarking scripts for some popular open-source distributed DNN training systems with state-of-the-art tensor fusion and sparsification schemes. 
 
