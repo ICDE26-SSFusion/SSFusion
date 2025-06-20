@@ -1014,7 +1014,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
                 
             if layer_idx <= self.partion_idx[group_idx] and compress_ratio == 1:
                 # 
-                # SSFusion-I: Buffer All-Reduce
+                # SSFusion-I(Interleaved Communication): Buffer All-Reduce
                 # 
                 try:
                     self._merged_parameters_noncompress[new_key].data[self.offset_noncompress:self.offset_noncompress + numel].copy_(tensor.to(self._merged_parameters_noncompress[new_key].data.device).view(numel))
@@ -1022,7 +1022,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
                 except Exception as e:
                     pass
             else:
-                # SSFusion-I: Buffer All-Reduce
+                # SSFusion-I(Interleaved Communication): Buffer All-Reduce
                 # 
                 if self._offload and name in self.on_cpu:
                     #  async_compression 
