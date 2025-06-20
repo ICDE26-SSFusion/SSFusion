@@ -413,14 +413,14 @@ class _DistributedOptimizer(torch.optim.Optimizer):
             taob[l] = taob[l+1] + tb[l+1]
         taoc = __calculate_comm_start(tc, tb, taob, L)
         if rank() == 0:
-            #logger.debug('seq_layernames: %s', seq_layernames)
-            #logger.debug('tb: %s', tb)
-            #logger.debug('taob: %s', taob)
-            #logger.debug('sizes: %s', p)
-            #logger.warn('tc sum: %f', np.sum(tc))
+            # logger.debug('seq_layernames: %s', seq_layernames)
+            # logger.debug('tb: %s', tb)
+            # logger.debug('taob: %s', taob)
+            # logger.debug('sizes: %s', p)
+            # logger.warn('tc sum: %f', np.sum(tc))
             pass
-            #logger.warn('tc: %s', tc)
-            #logger.warn('taoc: %s', taoc)
+            # logger.warn('tc: %s', tc)
+            # logger.warn('taoc: %s', taoc)
         groups = []
         group = []
         idx = 0
@@ -429,7 +429,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
         key = seq_layernames[l] 
         key_groupidx_maps[key] = idx
         
-        # 逆序插入layer序列
+        # 
         for l in range(1, L)[::-1]:
             key = seq_layernames[l]
             # 
@@ -832,7 +832,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
                 # if layer_idx==0:                    
                 #     print('name =', name)
 
-            # 遍历_groups_flags看是否都进group
+            # 
             for i, idx in enumerate(self._groups_flags[group_idx]):
                 # Debug bert_base mingzq
                 # if self._model_net_name=='bert_base' and (i==2 or i==3):
@@ -937,12 +937,13 @@ class _DistributedOptimizer(torch.optim.Optimizer):
                     return name, None, None, None
             
             bt = time.time()
-            # 如果队列里面还有卸载的结果，需要将其取出来
+            # 
             if self._offload:
                 while self._queue_len > 0:
                     self._queue_len -= 1
                     res,layer_idx = self._upload_queue.get()
                     self._compressed_tensor_list[layer_idx] = res
+            # 
             # print(f'self._compressed_tensor_list: {[type(elem) for elem in self._compressed_tensor_list]}')
             for i,res in enumerate(self._compressed_tensor_list):
                 if i == 0:
@@ -1032,6 +1033,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
 
                     result = self._compression.compress(tensor=tensor,name=name,ratio=compress_ratio)
                     self._compressed_tensor_list[layer_idx] = (new_key,result[1],result[2],offset)
+                    # 
                     # numel_compress = result[1].numel()
                     # self._merged_parameters_indicates[new_key].data[self.offset_compress:self.offset_compress+numel_compress].copy_(result[1].view(numel_compress)+offset)
                     # self._merged_parameters_values[new_key].data[self.offset_compress:self.offset_compress+numel_compress].copy_(result[2].view(numel_compress))
@@ -1406,7 +1408,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
                 tar += aar
                 aup = np.mean(ups[k])
                 tup += aup
-                #logger.info('[%d][%s]: %f, %f, %f', r, k, acp, aar, aup)
+                # logger.info('[%d][%s]: %f, %f, %f', r, k, acp, aar, aup)
             total = tcp+tar+tup
             cps.clear()
             ars.clear()
