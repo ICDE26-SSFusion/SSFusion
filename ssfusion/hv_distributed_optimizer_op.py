@@ -1498,9 +1498,12 @@ class _DistributedOptimizer(torch.optim.Optimizer):
     
     def valid_threshold_by_group(self,group_idx:int):
         return self.get_threshold(self._group_sizes[group_idx])
-
-
-
+    
+    
+    # 
+    # 
+    # Tensor fusion with Selective Sparsification
+    # 
     def generate_threshold(self):
         # 
         # 
