@@ -236,7 +236,8 @@ class _DistributedOptimizer(torch.optim.Optimizer):
             self._offload = False
 
         # logger.info('layerwise compressors: %s', self._layerwise_compressors)
-
+    
+    
     def _benchmark_communication(self):
         # logger.info('Benchmarking communication performance...')
         comm_profiler = CommunicationProfiler(allreduce_async_, synchronize)
@@ -1502,7 +1503,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
     
     # 
     # 
-    # Tensor fusion with Selective Sparsification
+    # Generate Selective Sparsification
     # 
     def generate_threshold(self):
         # 
@@ -1582,6 +1583,7 @@ class _DistributedOptimizer(torch.optim.Optimizer):
                     fixed_numel += layer_size
                     fixed_count += 1
                     layer_sparsity[self._groups[i][j]] = 1.0
+            
             if fixed_count != total_count:
                 assert fixed_count < total_count
                 other_sparsity = max(self._density,(total_numel * self._density - fixed_numel) / (total_numel - fixed_numel))
