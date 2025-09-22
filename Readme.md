@@ -15,7 +15,9 @@ This code repository covers:
 
 ### __State-of-the-art tensor fusion schemes__
 
-- [WFBPS](https://github.com/horovod/horovod)
+<!-- - [WFBPS](https://github.com/horovod/horovod) -->
+- [HiPress](https://gitlab.com/hipress/hipress)
+- [Espresso](https://github.com/zhuangwang93/Espresso)
 - [OkTopk](https://dl.acm.org/doi/pdf/10.1145/3126908.3126912)
 - [OMGS](https://github.com/HKBU-HPML/OMGS-SGD)
 - [Cupcake](https://github.com/zhuangwang93/Cupcake)
